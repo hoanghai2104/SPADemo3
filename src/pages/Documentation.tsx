@@ -1,4 +1,4 @@
-import { useDocumentation } from '../shared/hooks/useDocumentation';
+import { useDocumentation } from "../shared/hooks/useDocumentation";
 
 const documentationCSS = `
 .docs-page { max-width: 860px; margin: 0 auto; padding: 64px 24px 80px; font-family: 'DM Sans', sans-serif; color: var(--pp-text, #2D1B4E); }
@@ -26,8 +26,15 @@ const documentationCSS = `
 `;
 
 const Documentation: React.FC = () => {
-  const { items, totalCount, nextLink, isLoading, error, refetch, fetchNextPage } =
-    useDocumentation();
+  const {
+    items,
+    totalCount,
+    nextLink,
+    isLoading,
+    error,
+    refetch,
+    fetchNextPage,
+  } = useDocumentation();
 
   return (
     <>
@@ -37,21 +44,28 @@ const Documentation: React.FC = () => {
           <div className="docs-eyebrow">Documentation</div>
           <h1 className="docs-title">Guides and reference</h1>
           <p className="docs-subtitle">
-            Everything you need to build, secure, and ship your Power Pages site.
+            Everything you need to build, secure, and ship your Power Pages
+            site.
           </p>
         </header>
 
         {error ? (
           <div className="docs-state error" role="alert">
             <div>Could not load documentation: {error}</div>
-            <button type="button" className="docs-retry" onClick={() => refetch()}>
+            <button
+              type="button"
+              className="docs-retry"
+              onClick={() => refetch()}
+            >
               Try again
             </button>
           </div>
         ) : isLoading && items.length === 0 ? (
           <div className="docs-state loading">Loading documentation…</div>
         ) : items.length === 0 ? (
-          <div className="docs-state empty">No documentation articles have been published yet.</div>
+          <div className="docs-state empty">
+            No documentation articles have been published yet.
+          </div>
         ) : (
           <>
             <ul className="docs-list">
@@ -76,7 +90,7 @@ const Documentation: React.FC = () => {
                   onClick={fetchNextPage}
                   disabled={isLoading}
                 >
-                  {isLoading ? 'Loading…' : 'Load more'}
+                  {isLoading ? "Loading…" : "Load more"}
                 </button>
               ) : null}
             </div>
@@ -88,3 +102,4 @@ const Documentation: React.FC = () => {
 };
 
 export { Documentation };
+///
