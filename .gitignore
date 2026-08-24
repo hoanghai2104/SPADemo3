@@ -4,6 +4,7 @@ node_modules
 # Build output
 dist
 dist-ssr
+.powerpages-site
 
 # Vite
 .vite
@@ -42,3 +43,4 @@ coverage
 # OS
 .DS_Store
 Thumbs.db
+.playwright-mcp/

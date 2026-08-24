@@ -1,3 +1,5 @@
-export default function About() {
-  return null
-}
+const About: React.FC = () => {
+  return <></>;
+};
+
+export { About };
